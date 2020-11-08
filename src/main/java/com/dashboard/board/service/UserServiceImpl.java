@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService{
         userRepository.save(user);
     }
 
-    public void updateUser(Optional<User> user){
+    public void updateUser(User user){
         saveUser(user);
     }
 

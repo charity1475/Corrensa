@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table("APP_USER")
+@Table(name = "APP_USER")
 @Data
 
 public class User implements Serializable {
@@ -26,5 +26,6 @@ public class User implements Serializable {
     @Column(name="SALARY", nullable=false)
     private double salary;
 
-
+    public User() {
+    }
 }
