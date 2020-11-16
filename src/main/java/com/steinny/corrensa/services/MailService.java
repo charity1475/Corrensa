@@ -27,7 +27,7 @@ public class MailService {
             mailSender.send(messagePreparator);
             log.info("Activation Email sent!");
         }catch (MailException){
-            throw new 
+            throw new
         }
     }
 }
