@@ -2,6 +2,7 @@ package com.steinny.corrensa.services;
 
 import com.steinny.corrensa.model.NotificationEmail;
 import lombok.AllArgsConstructor;
+import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -19,6 +20,14 @@ public class MailService {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
             messageHelper.setFrom("info@corrensa.com");
             messageHelper.setTo(notificationEmail.getRecipient());
+            messageHelper.setSubject(notificationEmail.getSubject());
+            messageHelper.setText(mailContentBuilder.build(notificationEmail.getBody()));
+        };
+        try {
+            mailSender.send(messagePreparator);
+            log.info("Activation Email sent!");
+        }catch (MailException){
+            throw new 
         }
     }
 }
