@@ -1,6 +1,7 @@
 package com.steinny.corrensa.services;
 
 import com.steinny.corrensa.dto.RegisterRequest;
+import com.steinny.corrensa.model.NotificationEmail;
 import com.steinny.corrensa.model.User;
 import com.steinny.corrensa.model.VerificationToken;
 import com.steinny.corrensa.repository.UserRepository;
@@ -21,6 +22,8 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final VerificationTokenRepository verificationTokenRepository;
+    private final MailService mailService;
+
 
     @Transactional
     public void signup(RegisterRequest registerRequest){
@@ -32,6 +35,11 @@ public class AuthService {
         user.setEnabled(false);
         userRepository.save(user);
         String token = generateVerificationToken(user);
+
+        mailService.sendMail(new NotificationEmail("Please Activate your Account",
+                user.getEmail(),"Thank you for signing up at Corrensa," +
+                " Please click on  the link below to activate your account : " +
+                "http://localhost:8080/api/auth/accountVerification/" + token));
 
     }
 
