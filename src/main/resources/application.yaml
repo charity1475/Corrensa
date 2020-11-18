@@ -2,5 +2,5 @@ app:
   datasource:
     jdbc-url: jdbc:postgresql://172.17.0.2:5432/demodb
     username: postgres
-    password: 1476
+    password: 1475
     pool-size: 30
