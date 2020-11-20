@@ -31,7 +31,7 @@ public class AuthService {
     private final UserRepository userRepository;
     private final VerificationTokenRepository verificationTokenRepository;
     private final MailService mailService;
-    private final AuthenticationManager
+    private final AuthenticationManager authenticationManager;
 
 
     @Transactional
