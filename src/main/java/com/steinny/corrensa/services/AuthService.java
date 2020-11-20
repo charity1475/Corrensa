@@ -1,5 +1,7 @@
 package com.steinny.corrensa.services;
 
+import com.steinny.corrensa.dto.AuthenticationResponse;
+import com.steinny.corrensa.dto.LoginRequest;
 import com.steinny.corrensa.dto.RegisterRequest;
 import com.steinny.corrensa.exceptions.CorrensaException;
 import com.steinny.corrensa.model.NotificationEmail;
@@ -10,6 +12,7 @@ import com.steinny.corrensa.repository.VerificationTokenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
