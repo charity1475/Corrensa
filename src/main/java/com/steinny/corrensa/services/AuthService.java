@@ -9,6 +9,7 @@ import com.steinny.corrensa.model.User;
 import com.steinny.corrensa.model.VerificationToken;
 import com.steinny.corrensa.repository.UserRepository;
 import com.steinny.corrensa.repository.VerificationTokenRepository;
+import com.steinny.corrensa.security.JwtProvider;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -35,6 +36,7 @@ public class AuthService {
     private final VerificationTokenRepository verificationTokenRepository;
     private final MailService mailService;
     private final AuthenticationManager authenticationManager;
+    private final JwtProvider jwtProvider;
 
 
     @Transactional
