@@ -1,10 +1,10 @@
 package com.steinny.corrensa.controller;
 
+import com.steinny.corrensa.dto.AuthenticationResponse;
 import com.steinny.corrensa.dto.LoginRequest;
 import com.steinny.corrensa.dto.RegisterRequest;
 import com.steinny.corrensa.services.AuthService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,8 +29,8 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public void login(@RequestBody LoginRequest loginRequest){
-        authService.login(loginRequest);
+    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest){
+       return  authService.login(loginRequest);
     }
 
 }
