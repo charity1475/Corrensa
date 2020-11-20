@@ -20,7 +20,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = IDENTITY)

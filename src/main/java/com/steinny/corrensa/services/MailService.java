@@ -30,7 +30,7 @@ public class MailService {
             mailSender.send(messagePreparator);
             log.info("Activation Email sent!");
         }catch (MailException e){
-            throw new CorrensaException("Exception occured while sending email to " + notificationEmail.getRecipient());
+            throw new CorrensaException("Exception occured while sending email to " + notificationEmail.getRecipient(), e);
         }
     }
 }
