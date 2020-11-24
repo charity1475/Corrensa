@@ -80,14 +80,14 @@ public class AuthService {
 
     private void fetchUserAndEnable(VerificationToken verificationToken) {
         String username = verificationToken.getUser().getUserName();
-        User user = userRepository.findByUserName(username).orElseThrow(() -> new CorrensaException("User not found with name - " + username, e));
+        User user = userRepository.findByUserName(username).orElseThrow(() -> new CorrensaException("User not found with name - " + username));
         user.setEnabled(true);
         userRepository.save(user);
     }
 
     public void verifyAccount(String token) {
         Optional<VerificationToken> verificationToken = verificationTokenRepository.findByToken(token);
-        fetchUserAndEnable(verificationToken.orElseThrow(() -> new CorrensaException("Invalid Token", e)));
+        fetchUserAndEnable(verificationToken.orElseThrow(() -> new CorrensaException("Invalid Token")));
     }
 
     public AuthenticationResponse login(LoginRequest loginRequest) {
