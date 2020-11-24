@@ -1,6 +1,7 @@
 package com.steinny.corrensa.services;
 
 
+import com.steinny.corrensa.exceptions.CorrensaException;
 import com.steinny.corrensa.model.RefreshToken;
 import com.steinny.corrensa.repository.RefreshTokenRepository;
 import lombok.AllArgsConstructor;
@@ -20,5 +21,12 @@ public class RefreshTokenService {
         refreshToken.setToken(UUID.randomUUID().toString());
         refreshToken.setCreatedDate(Instant.now());
         return refreshTokenRepository.save(refreshToken);
+    }
+    public void validateRefreshToken(String token){
+        refreshTokenRepository.findByToken(token)
+                .orElseThrow( () -> new CorrensaException("Invalid refresh Token"));
+    }
+    public void deleteRefreshToken(String token){
+        refreshTokenRepository.deleteByToken(token);
     }
 }
