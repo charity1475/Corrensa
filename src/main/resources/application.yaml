@@ -4,6 +4,7 @@ spring:
     url: jdbc:mysql://localhost:3306/demodb
     username:charity
     password:1475charity
+    initialize=true
   jpa:
     hibernate.ddl-auto: update
     generate-ddl: true
